@@ -110,6 +110,15 @@ if start_button_pressed:
 
                 if len(sentence) > 5:
                     sentence = sentence[-5:]
+                    mytext = actions[np.argmax(res)]
+                    myobj = gTTS(text=mytext, lang=language, slow=False)
+
+                    # Saving the converted audio in a mp3 file named
+                    # welcome 
+                    myobj.save("audio.mp3")
+                    
+                    # Playing the converted file
+                    autoplay_audio("audio.mp3")
 
                 # Viz probabilities
                 #image = prob_viz(res, actions, image, colors)
